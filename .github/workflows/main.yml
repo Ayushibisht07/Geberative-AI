@@ -1,0 +1,670 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: PEP_Workflow
+  use_icon_as_answer_icon: false
+kind: app
+version: 0.1.4
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1731270336738-source-1730933109381-target
+      selected: false
+      source: '1731270336738'
+      sourceHandle: source
+      target: '1730933109381'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1732074352676-source-1732071986033-target
+      selected: false
+      source: '1732074352676'
+      sourceHandle: source
+      target: '1732071986033'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1731795150893-source-1732075589085-target
+      selected: false
+      source: '1731795150893'
+      sourceHandle: source
+      target: '1732075589085'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: if-else
+      id: 1732075589085-source-1732076246801-target
+      selected: false
+      source: '1732075589085'
+      sourceHandle: source
+      target: '1732076246801'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: llm
+      id: 1732076246801-true-1732074352676-target
+      selected: false
+      source: '1732076246801'
+      sourceHandle: 'true'
+      target: '1732074352676'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: if-else
+      id: 1732075589085-source-17320794365900-target
+      selected: false
+      source: '1732075589085'
+      sourceHandle: source
+      target: '17320794365900'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 17320794365900-true-1732140089930-target
+      source: '17320794365900'
+      sourceHandle: 'true'
+      target: '1732140089930'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: llm
+      id: 1732140089930-source-1731270336738-target
+      source: '1732140089930'
+      sourceHandle: source
+      target: '1731270336738'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: question-classifier
+      id: 1730932790087-source-1733246702629-target
+      source: '1730932790087'
+      sourceHandle: source
+      target: '1733246702629'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1733246702629-1733246836133-1733246778023-target
+      source: '1733246702629'
+      sourceHandle: '1733246836133'
+      target: '1733246778023'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: knowledge-retrieval
+      id: 1733246778023-source-1731795150893-target
+      source: '1733246778023'
+      sourceHandle: source
+      target: '1731795150893'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1733246702629-1733246868900-1733246933030-target
+      source: '1733246702629'
+      sourceHandle: '1733246868900'
+      target: '1733246933030'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: end
+      id: 1733246933030-source-1733247121165-target
+      source: '1733246933030'
+      sourceHandle: source
+      target: '1733247121165'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: 'This is the UConn College of engineering chatbot '
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - label: input
+          max_length: 1000
+          options: []
+          required: true
+          type: paragraph
+          variable: user_Input
+      height: 133
+      id: '1730932790087'
+      position:
+        x: -481.3090432709472
+        y: 511.51813630727986
+      positionAbsolute:
+        x: -481.3090432709472
+        y: 511.51813630727986
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1731270336738'
+          - text
+          variable: text
+        selected: false
+        title: End
+        type: end
+      height: 89
+      id: '1730933109381'
+      position:
+        x: 2034.6810501354894
+        y: 704.8117830523685
+      positionAbsolute:
+        x: 2034.6810501354894
+        y: 704.8117830523685
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1732140089930'
+          - text
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: openai
+        prompt_template:
+        - id: 29147c17-50b0-45f6-b80d-d1e3564585b2
+          role: system
+          text: for all questions about research or admissions, read {{#context#}}and
+            display everything in as detail as possible. Start searching from https://grad.engr.uconn.edu/
+            and work your way until the most correct and relevant response is received
+        - id: 2d8e3ac5-7551-4885-86a0-d0d2947b3587
+          role: user
+          text: ''
+        selected: false
+        title: LLM 2
+        type: llm
+        variables: []
+        vision:
+          configs:
+            detail: high
+            variable_selector: []
+          enabled: false
+      height: 97
+      id: '1731270336738'
+      position:
+        x: 1719.8057837131666
+        y: 704.8117830523685
+      positionAbsolute:
+        x: 1719.8057837131666
+        y: 704.8117830523685
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        dataset_ids:
+        - c68e771a-a0d0-47cc-8130-2ae6907b6940
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: false
+          reranking_mode: reranking_model
+          score_threshold: null
+          top_k: 4
+        query_variable_selector:
+        - '1730932790087'
+        - user_Input
+        retrieval_mode: multiple
+        selected: false
+        title: Knowledge Retrieval
+        type: knowledge-retrieval
+      height: 91
+      id: '1731795150893'
+      position:
+        x: 502.7131625692364
+        y: 511.51813630727986
+      positionAbsolute:
+        x: 502.7131625692364
+        y: 511.51813630727986
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        provider_id: searchapi
+        provider_name: searchapi
+        provider_type: builtin
+        selected: false
+        title: Google Search API
+        tool_configurations:
+          gl: US
+          hl: en
+          result_type: text
+        tool_label: Google Search API
+        tool_name: google_search_api
+        tool_parameters:
+          google_domain:
+            type: mixed
+            value: google.com
+          location:
+            type: mixed
+            value: ''
+          query:
+            type: mixed
+            value: '{{#1730932790087.user_Input#}}'
+        type: tool
+      height: 141
+      id: '1732140089930'
+      position:
+        x: 1414.248562099245
+        y: 704.8117830523685
+      positionAbsolute:
+        x: 1414.248562099245
+        y: 704.8117830523685
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1732074352676'
+          - text
+          variable: text
+        selected: false
+        title: End 3
+        type: end
+      height: 89
+      id: '1732071986033'
+      position:
+        x: 1851.9888333315307
+        y: 293.34371674490967
+      positionAbsolute:
+        x: 1851.9888333315307
+        y: 293.34371674490967
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1731795150893'
+          - result
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: openai
+        prompt_template:
+        - id: 1471b973-4564-4aec-9d84-07506e1d0ef8
+          role: system
+          text: "display {{#context#}} that is most relevant to {{#1730932790087.user_Input#}}\
+            \ \n"
+        - id: 5d3f29d5-c3e0-4250-9714-e78dfc1aa8cb
+          role: user
+          text: ''
+        selected: false
+        title: LLM 3
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1732074352676'
+      position:
+        x: 1487.7315870302991
+        y: 293.34371674490967
+      positionAbsolute:
+        x: 1487.7315870302991
+        y: 293.34371674490967
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1731795150893'
+          - result
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: openai
+        prompt_template:
+        - id: 1d8408c1-58d0-4b40-b00f-f3d80166ceb9
+          role: system
+          text: Validate if {{#context#}} is accurate. Respond with "correct" if it
+            fully addresses {{#1730932790087.user_Input#}} or "incorrect" if it does
+            not.
+        - id: 33cb1a23-1bd4-4f0f-97e7-3404555edc2f
+          role: user
+          text: ''
+        selected: false
+        title: LLM 5
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1732075589085'
+      position:
+        x: 777.4782048470873
+        y: 465.7722478046228
+      positionAbsolute:
+        x: 777.4782048470873
+        y: 465.7722478046228
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: d0d7dd63-625d-4b22-862f-ecc7c981a021
+            value: correct
+            varType: string
+            variable_selector:
+            - '1732075589085'
+            - text
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: IF/ELSE 1
+        type: if-else
+      height: 125
+      id: '1732076246801'
+      position:
+        x: 1093.4716029184342
+        y: 311.70597980971473
+      positionAbsolute:
+        x: 1093.4716029184342
+        y: 311.70597980971473
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: d0d7dd63-625d-4b22-862f-ecc7c981a021
+            value: incorrect
+            varType: string
+            variable_selector:
+            - '1732075589085'
+            - text
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 'IF/ELSE 2 '
+        type: if-else
+      height: 125
+      id: '17320794365900'
+      position:
+        x: 1093.4716029184342
+        y: 670.3645778545846
+      positionAbsolute:
+        x: 1093.4716029184342
+        y: 670.3645778545846
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        classes:
+        - id: '1733246836133'
+          name: UConn College of engineering check
+        - id: '1733246868900'
+          name: 'Other queries '
+        desc: ''
+        instructions: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gemini-1.5-flash
+          provider: google
+        query_variable_selector:
+        - '1730932790087'
+        - user_Input
+        selected: false
+        title: Question Classifier
+        topics: []
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 175
+      id: '1733246702629'
+      position:
+        x: -167.1120324341712
+        y: 511.51813630727986
+      positionAbsolute:
+        x: -167.1120324341712
+        y: 511.51813630727986
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1733246702629'
+          - class_name
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: openai
+        prompt_template:
+        - id: 9ca6b663-d3d3-425a-999a-2091b8f50837
+          role: system
+          text: 'If the {{#context#}} contains queries to uconn then guide it to knowledge
+            retrieval. '
+        selected: false
+        title: LLM 4
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1733246778023'
+      position:
+        x: 192.2590098268239
+        y: 511.51813630727986
+      positionAbsolute:
+        x: 192.2590098268239
+        y: 511.51813630727986
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - '1733246702629'
+          - class_name
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: openai
+        prompt_template:
+        - id: 197eb854-a040-48d5-94ca-a162ac011851
+          role: system
+          text: If the {{#context#}} does not contain queries related to UConn  College
+            of engineering, display "Sorry, this chatbot can only answer queries related
+            to UConn College of Engineering"
+        - id: 18079c23-cec6-4819-9630-df2c41b13953
+          role: user
+          text: ''
+        selected: false
+        title: LLM 5
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 97
+      id: '1733246933030'
+      position:
+        x: 192.2590098268239
+        y: 716.7629739205322
+      positionAbsolute:
+        x: 192.2590098268239
+        y: 716.7629739205322
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1733246933030'
+          - text
+          variable: text
+        selected: false
+        title: End 3
+        type: end
+      height: 89
+      id: '1733247121165'
+      position:
+        x: 495.2590098268239
+        y: 716.7629739205322
+      positionAbsolute:
+        x: 495.2590098268239
+        y: 716.7629739205322
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 243
+    viewport:
+      x: -572.9028833896124
+      y: 240.1762231095137
+      zoom: 0.5233892718034411
